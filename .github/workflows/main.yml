@@ -47,7 +47,7 @@ jobs:
           allowDirtyBuild: true  # Add this line to allow dirty builds
 
       # Output
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: build/WebGL
 
