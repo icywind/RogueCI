@@ -1,4 +1,4 @@
-name: GameCI Template 🎮
+name: Build and Deploy 🚀
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -47,21 +47,21 @@ jobs:
           allowDirtyBuild: true  # Add this line to allow dirty builds
 
       # Output
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
-          name: Build
           path: build/WebGL
 
 # Deployment job
   deploy:
+    name: Deploy to GitHub Pages 🚀
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     permissions:
-      id-token: write
       pages: write
+      id-token: write
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
