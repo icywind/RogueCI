@@ -42,12 +42,13 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          BUILD_PATH: build
         with:
           targetPlatform: WebGL
           allowDirtyBuild: true  # Add this line to allow dirty builds
 
       # Output
-      - uses: actions/upload-pages-artifact@v3.0.1
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: build
 
