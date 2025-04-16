@@ -46,10 +46,15 @@ jobs:
           targetPlatform: WebGL
           allowDirtyBuild: true  # Add this line to allow dirty builds
 
+      - name: Prepare WebGL artifact
+        run: |
+          mkdir webgl-deploy
+          cp -r build/WebGL/* webgl-deploy/
+
       # Output
       - uses: actions/upload-pages-artifact@v3.0.1
         with:
-          path: build/WebGL/*
+          path: webgl-deploy
 
 # Deployment job
   deploy:
