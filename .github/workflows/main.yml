@@ -48,6 +48,11 @@ jobs:
           targetPlatform: WebGL
           allowDirtyBuild: true  # Add this line to allow dirty builds
 
+      # Debug build output
+      - name: Show build output
+        run: |
+          tree build || ls -R build
+          
       # Prepare WebGL output folder for Pages
       - name: Prepare WebGL artifact
         run: |
@@ -58,7 +63,7 @@ jobs:
       - name: Disable Jekyll
         run: touch webgl-deploy/.nojekyll
 
-      # Debug output
+      # Debug copy output
       - name: Show deployed folder structure
         run: |
           tree webgl-deploy || ls -R webgl-deploy
