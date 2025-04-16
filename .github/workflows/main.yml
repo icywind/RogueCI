@@ -52,7 +52,7 @@ jobs:
       - name: Prepare WebGL artifact
         run: |
           mkdir webgl-deploy
-          cp -r build/WebGL/* webgl-deploy/
+          rsync -av --progress build/WebGL/ webgl-deploy/
 
       # Add .nojekyll to prevent GitHub Pages from ignoring folders like `/Build`
       - name: Disable Jekyll
@@ -60,7 +60,8 @@ jobs:
 
       # Debug output
       - name: Show deployed folder structure
-        run: ls -R webgl-deploy
+        run: |
+          tree webgl-deploy || ls -R webgl-deploy
 
       # Upload to GitHub Pages artifact store
       - name: Upload GitHub Pages artifact
