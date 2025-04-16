@@ -47,6 +47,7 @@ jobs:
         with:
           targetPlatform: WebGL
           allowDirtyBuild: true  # Add this line to allow dirty builds
+          buildName: .   # <--- THIS avoids nesting
 
       # Debug build output
       - name: Show build output
